@@ -1,0 +1,10 @@
+以下の文字列が対象テキストに含まれるか判定してください: 水属性
+【対象テキスト】
+card_name: 
+{card_name}
+
+zokusei:
+{zokusei}
+
+text:
+{text}

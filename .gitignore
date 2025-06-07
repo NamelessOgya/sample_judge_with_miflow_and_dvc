@@ -1,0 +1,8 @@
+.dvc/cache/
+.dvc/tmp/
+.dvc/plots/
+
+__pycache__/
+*.py[cod]
+.env
+/data
