@@ -37,7 +37,7 @@ def main():
     mlflow.log_param("judge_prompt_base", judge.judge_prompt_base)
     mlflow.log_param("judge_prompt_version", get_file_hash(f"./src/judge/prompt/{args.prompt_name}.txt"))
 
-    mlflow.log_param("submit_file_name", f"./data/submit/{args.submit_file_name}.csv")
+    mlflow.log_param("submit_file_name", args.submit_file_name)
     mlflow.log_param("submit_file_version", get_file_hash(f"./data/submit/{args.submit_file_name}.csv"))
 
     mlflow.log_metric("score", result["score"].mean())
