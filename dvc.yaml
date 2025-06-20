@@ -20,4 +20,11 @@ stages:
         - run/llm_evaluate.py
       outs:
         - data/result/llm_${submit_file_name}_${item}.json
+  make_dashboard:
+    cmd: poetry run python -m run.make_dashboard
+    deps:
+      - data/result/*.json
+    outs:
+      - data/dashboard/mikoto_run_ids.csv
+      - data/dashboard/scores.csv
   

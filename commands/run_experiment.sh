@@ -11,7 +11,7 @@ echo "mikoto run id: $mikoto_run_id"
 echo "=========================="
 
 
-poetry run dvc repro
+poetry run dvc repro rulebase_evaluate llm_evaluate --single-item
 
 git add .
 
