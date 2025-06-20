@@ -1,0 +1,20 @@
+stages:
+  rulebase_evaluate:
+    foreach: ${rulebase_funcs}
+    do: 
+      cmd: python -m run.rulebase_evaluate --rulebase_func_name ${item} --submit_file_name ${submit_file_name}
+      deps:
+        - data/submit/${submit_file_name}.csv
+      outs:
+        - data/result/rulebase_${submit_file_name}_${item}.json
+
+  llm_evaluate:
+    foreach: ${prompts}
+    do: 
+      cmd: python -m run.llm_evaluate --prompt_name ${item} --submit_file_name ${submit_file_name}
+      deps:
+        - data/submit/${submit_file_name}.csv
+        - src/judge/prompt/${item}.txt
+      outs:
+        - data/result/llm_${submit_file_name}_${item}.json
+  

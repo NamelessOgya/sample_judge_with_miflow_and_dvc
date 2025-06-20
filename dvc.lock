@@ -1,0 +1,87 @@
+schema: '2.0'
+stages:
+  evaluate:
+    cmd: python -m run.evaluate
+    deps:
+    - path: data/
+      hash: md5
+      md5: 26afe518d513bb3b3da61c889b5a4ce2.dir
+      size: 1158
+      nfiles: 1
+    - path: src/sample_judge/prompt
+      hash: md5
+      md5: 1427533ff7947135278d60a7918c5668.dir
+      size: 385
+      nfiles: 2
+    - path: src/sample_judge/rule_base_judge
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    outs:
+    - path: result/result.csv
+      hash: md5
+      md5: f5b5c9a18e78458d1a2fdd35d4096e10
+      size: 5684
+  rulebase_evaluate@count_text_length:
+    cmd: python -m run.rulebase_evaluate --rulebase_func_name count_text_length 
+      --submit_file_name submit
+    deps:
+    - path: data/submit/submit.csv
+      hash: md5
+      md5: faac4d81aab978d5a1a76dad1ab0b0b9
+      size: 1158
+    outs:
+    - path: data/result/rulebase_submit_count_text_length.json
+      hash: md5
+      md5: 5afa9720ea705444361965285f7d1fe9
+      size: 1283
+  rulebase_evaluate@check_megu_in_text:
+    cmd: python -m run.rulebase_evaluate --rulebase_func_name check_megu_in_text
+      --submit_file_name submit
+    deps:
+    - path: data/submit/submit.csv
+      hash: md5
+      md5: faac4d81aab978d5a1a76dad1ab0b0b9
+      size: 1158
+    outs:
+    - path: data/result/rulebase_submit_check_megu_in_text.json
+      hash: md5
+      md5: 15cce71818b45e3045330a857b985f43
+      size: 1283
+  llm_evaluate@check_if_category_in_text:
+    cmd: python -m run.llm_evaluate --prompt_name check_if_category_in_text 
+      --submit_file_name submit
+    deps:
+    - path: data/submit/submit.csv
+      hash: md5
+      md5: faac4d81aab978d5a1a76dad1ab0b0b9
+      size: 1158
+    - path: src/judge/prompt/check_if_category_in_text.txt
+      hash: md5
+      md5: c016a5f0e5c9c9f6a798e58bc93e8e98
+      size: 183
+      isexec: true
+    outs:
+    - path: data/result/llm_submit_check_if_category_in_text.json
+      hash: md5
+      md5: d4b0f3169a23e89b695c5f28d7728b2d
+      size: 1376
+  llm_evaluate@check_if_gakunen_in_text:
+    cmd: python -m run.llm_evaluate --prompt_name check_if_gakunen_in_text 
+      --submit_file_name submit
+    deps:
+    - path: data/submit/submit.csv
+      hash: md5
+      md5: faac4d81aab978d5a1a76dad1ab0b0b9
+      size: 1158
+    - path: src/judge/prompt/check_if_gakunen_in_text.txt
+      hash: md5
+      md5: b2c196a574b01de1914f29010f3f4fc6
+      size: 184
+      isexec: true
+    outs:
+    - path: data/result/llm_submit_check_if_gakunen_in_text.json
+      hash: md5
+      md5: 2a9bbe09bc300ba07623cd8aeb4b2e7f
+      size: 1376

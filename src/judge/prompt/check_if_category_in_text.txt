@@ -1,0 +1,10 @@
+以下の文字列が対象テキストに含まれるか判定してください: ひめ
+【対象テキスト】
+idol_name: 
+{idol_name}
+
+gakunen:
+{gakunen}
+
+text:
+{text}

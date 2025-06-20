@@ -1,0 +1,9 @@
+submit_file_name: submit
+
+rulebase_funcs:
+  - "count_text_length"
+  - "check_megu_in_text"
+
+prompts:
+  - "check_if_category_in_text"
+  - "check_if_gakunen_in_text"
