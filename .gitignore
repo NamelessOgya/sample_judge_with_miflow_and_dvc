@@ -6,5 +6,6 @@ __pycache__/
 *.py[cod]
 .env
 /data
+current_run.yaml
 
 mlruns/
