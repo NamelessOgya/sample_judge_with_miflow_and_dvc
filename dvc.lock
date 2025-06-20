@@ -59,13 +59,13 @@ stages:
       size: 1158
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
-      md5: c016a5f0e5c9c9f6a798e58bc93e8e98
+      md5: 2c526c68f8cc53ccfde7e97db83c24c9
       size: 183
       isexec: true
     outs:
     - path: data/result/llm_submit_check_if_category_in_text.json
       hash: md5
-      md5: d4b0f3169a23e89b695c5f28d7728b2d
+      md5: 46e85da25ad884bf4b8ed760bbba8418
       size: 1376
   llm_evaluate@check_if_gakunen_in_text:
     cmd: python -m run.llm_evaluate --prompt_name check_if_gakunen_in_text 
