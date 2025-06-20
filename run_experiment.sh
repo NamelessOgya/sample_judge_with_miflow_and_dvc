@@ -10,7 +10,7 @@ echo "experinent id: $run_id"
 echo "=========================="
 
 
-dvc repro --params run.id="$run_id"
+poetry run dvc repro --params run.id="$run_id"
 
 git add .
 git commit -m "Auto: Run experiment with id: $run_id"
