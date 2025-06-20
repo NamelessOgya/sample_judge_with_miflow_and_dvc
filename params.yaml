@@ -7,6 +7,3 @@ rulebase_funcs:
 prompts:
   - "check_if_category_in_text"
   - "check_if_gakunen_in_text"
-
-run:
-  id: null
