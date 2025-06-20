@@ -1,0 +1,1 @@
+poetry run dvc repro make_dashboard --single-item

@@ -23,7 +23,8 @@ stages:
   make_dashboard:
     cmd: poetry run python -m run.make_dashboard
     deps:
-      - data/result/*.json
+      - data/result/
+      - run/make_dashboard.py
     outs:
       - data/dashboard/mikoto_run_ids.csv
       - data/dashboard/scores.csv

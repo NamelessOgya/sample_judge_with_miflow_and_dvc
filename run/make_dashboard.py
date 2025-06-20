@@ -25,8 +25,6 @@ def main():
     # データをDataFrameに変換
     data = []
     for run in runs:
-        print(run)
-        print(run.data.params)
         
         try:
             result_dict = {
@@ -53,8 +51,6 @@ def main():
             pass
 
     df = pd.DataFrame(data)
-
-    print(df)
 
     # クロス集計例：learning_rate × batch_size ごとの accuracy 平均を出す
     scores = pd.pivot_table(df, index='submit', columns=['category', 'judge_field'], values='score', aggfunc='mean')
