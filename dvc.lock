@@ -31,6 +31,10 @@ stages:
       hash: md5
       md5: faac4d81aab978d5a1a76dad1ab0b0b9
       size: 1158
+    - path: src/judge/rulebase_funcs/count_text_length.py
+      hash: md5
+      md5: 055b0c892221991b62284da516344de5
+      size: 356
     outs:
     - path: data/result/rulebase_submit_count_text_length.json
       hash: md5
@@ -44,6 +48,10 @@ stages:
       hash: md5
       md5: faac4d81aab978d5a1a76dad1ab0b0b9
       size: 1158
+    - path: src/judge/rulebase_funcs/check_megu_in_text.py
+      hash: md5
+      md5: a05c349a92ce22b233956445f5ab403b
+      size: 380
     outs:
     - path: data/result/rulebase_submit_check_megu_in_text.json
       hash: md5

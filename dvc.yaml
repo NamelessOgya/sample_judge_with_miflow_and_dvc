@@ -5,6 +5,7 @@ stages:
       cmd: python -m run.rulebase_evaluate --rulebase_func_name ${item} --submit_file_name ${submit_file_name}
       deps:
         - data/submit/${submit_file_name}.csv
+        - src/judge/rulebase_funcs/${item}.py
       outs:
         - data/result/rulebase_${submit_file_name}_${item}.json
 
