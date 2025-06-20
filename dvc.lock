@@ -113,7 +113,7 @@ stages:
     deps:
     - path: data/result/
       hash: md5
-      md5: d28c57d48c58eddf79316bc1df0c3efb.dir
+      md5: 9b069ca872c52e7fe51da6dca514ce81.dir
       size: 5318
       nfiles: 4
     - path: run/make_dashboard.py
@@ -123,9 +123,9 @@ stages:
     outs:
     - path: data/dashboard/mikoto_run_ids.csv
       hash: md5
-      md5: c90fc25022d257a74d82896511e20a82
-      size: 834
+      md5: c28448e9a2efe3d34d028475c62615ca
+      size: 818
     - path: data/dashboard/scores.csv
       hash: md5
-      md5: 0322e9d9bfeaea029633f27d0588d85f
-      size: 824
+      md5: bbd478a02300e3db394645446c2cb2af
+      size: 806
