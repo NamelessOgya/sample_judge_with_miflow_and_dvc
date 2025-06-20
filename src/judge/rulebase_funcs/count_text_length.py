@@ -14,8 +14,3 @@ def count_text_length(
     row_dict: dict
 ):
     return {"score": len(row_dict["text"])}
-
-def check_megu_in_text(
-    row_dict: dict
-):
-    return {"score": 1.0 if "めぐ" in row_dict["text"] else 0.0}

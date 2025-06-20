@@ -12,7 +12,7 @@ import importlib
 class RulebaseJudge:
     def __init__(self, rulebase_func_name: str):
         self.rulebase_func_name = rulebase_func_name
-        module = importlib.import_module("src.judge.rulebase_judge_func")
+        module = importlib.import_module(f"src.judge.rulebase_funcs.{rulebase_func_name}")
         
         # 関数オブジェクトを取得して実行
         self.func = getattr(module, rulebase_func_name)

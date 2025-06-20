@@ -5,10 +5,12 @@
 import argparse
 import mlflow
 import pandas as pd
+import hashlib
 
 from src.evaluate_common import evaluate_submit_df
 from src.judge.llm_judge import LLMJudge
 from src.utils.dvc_util import get_current_run_id
+from src.utils.hash_util import get_file_hash
 
 
 
@@ -30,9 +32,12 @@ def main():
     
     mlflow.log_param("mikoto_run_id", get_current_run_id())
     mlflow.log_param("prompt_name", args.prompt_name)
+
     mlflow.log_param("judge_prompt_base", judge.judge_prompt_base)
+    mlflow.log_param("judge_prompt_version", get_file_hash(f"./src/judge/prompt/{args.prompt_name}.txt"))
+
     mlflow.log_param("submit_file_name", "./data/submit/submit.csv")
-    mlflow.log_param("submit_data_version", "hoge")
+    mlflow.log_param("submit_file_version", get_file_hash("./data/submit/submit.csv"))
 
 if __name__ == '__main__':
     main()

@@ -10,6 +10,7 @@ import pandas as pd
 from src.evaluate_common import evaluate_submit_df
 from src.judge.rulebase_judge import RulebaseJudge
 from src.utils.dvc_util import get_current_run_id
+from src.utils.hash_util import get_file_hash
 
 
 def main():
@@ -31,8 +32,12 @@ def main():
 
     mlflow.log_param("mikoto_run_id", get_current_run_id())
     mlflow.log_param("rulebase_func_name", judge.rulebase_func_name)
+
     mlflow.log_param("submit_file_name", "./data/submit/submit.csv")
-    mlflow.log_param("submit_data_version", "hoge")
+    mlflow.log_param("submit_file_version", get_file_hash("./data/submit/submit.csv"))
+
+    mlflow.log_param("rulebase_func_version", get_file_hash(f"./src/judge/rulebase_funcs/{args.rulebase_func_name}.py"))
+
     mlflow.log_metric("score", result["score"].mean())
 
 if __name__ == '__main__':

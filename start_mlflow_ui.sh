@@ -1,0 +1,1 @@
+poetry run mlflow ui --port 5001 --backend-store-uri ./mlruns

@@ -8,5 +8,6 @@
     "ms-python.python",
     "ms-toolsai.jupyter"
   ],
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "forwardPorts": [5001]
 }
