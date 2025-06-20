@@ -6,6 +6,7 @@ stages:
       deps:
         - data/submit/${submit_file_name}.csv
         - src/judge/rulebase_funcs/${item}.py
+        - run/rulebase_evaluate.py
       outs:
         - data/result/rulebase_${submit_file_name}_${item}.json
 
@@ -16,6 +17,7 @@ stages:
       deps:
         - data/submit/${submit_file_name}.csv
         - src/judge/prompt/${item}.txt
+        - run/llm_evaluate.py
       outs:
         - data/result/llm_${submit_file_name}_${item}.json
   

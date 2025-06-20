@@ -26,11 +26,11 @@ def main():
     data = []
     for run in runs:
         print(run)
-        row = {"run_id": run.info.run_id}
-        row.update(run.data.params)
-        row.update(run.data.metrics)
-        row.update(run.data.tags)
-        data.append(row)
+        print(run.data.params)
+        
+        res = {
+            run.params.prompt_name
+        }
 
     df = pd.DataFrame(data)
 
