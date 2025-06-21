@@ -1,6 +1,6 @@
 stages:
   llm_generate:
-    cmd: poetry run python -m run.llm_generate --prediction_target_name ${generate.generate_data_name} --prompt_name ${generate.generate_prompt_name}
+    cmd: poetry run python -m run.llm_generate --generate_target_name ${generate.generate_data_name} --prompt_name ${generate.generate_prompt_name}
     deps:
       - data/generate_target/${generate.generate_data_name}.csv
       - src/generate/prompt/${generate.generate_prompt_name}.txt
