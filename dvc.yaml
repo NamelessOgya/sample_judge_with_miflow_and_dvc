@@ -6,7 +6,7 @@ stages:
       - src/generate/prompt/${generate.generate_prompt_name}.txt
       - run/llm_generate.py
     outs:
-      - data/submit/${generate_target_name}_${prompt_name}.csv
+      - data/submit/${generate_data_name}_${generate_prompt_name}.csv
     params:
       - generate
 
