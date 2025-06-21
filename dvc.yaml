@@ -5,8 +5,8 @@ stages:
       - data/generate_target/${generate.generate_data_name}.csv
       - src/generate/prompt/${generate.generate_prompt_name}.txt
       - run/llm_generate.py
-    outs-persist:
-      - data/submit/
+    outs:
+      - data/submit/${generate_target_name}_${prompt_name}.csv
     params:
       - generate
 

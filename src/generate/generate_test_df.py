@@ -1,4 +1,5 @@
 import pandas as pd
+from src.utils.dvc_util import get_current_run_id
 
 def generate_test_df(generate_target, invoker):
 
@@ -11,7 +12,9 @@ def generate_test_df(generate_target, invoker):
         
         result = invoker.generate_row(row_dict)
 
+        row_dict["mikoto_run_id"] = get_current_run_id()
         row_dict["text"] = result
+        
 
         res_list.append(row_dict)
     

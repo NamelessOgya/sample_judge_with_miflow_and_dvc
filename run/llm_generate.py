@@ -50,7 +50,7 @@ def main():
         mlflow.log_param(f"model_config_{key}", value)
 
     
-    result.to_csv(f"./data/submit/{args.generate_target_name}_{get_current_run_id()}.csv")
+    result.to_csv(f"./data/submit/{args.generate_target_name}_{args.prompt_name}.csv")
 
     
 
