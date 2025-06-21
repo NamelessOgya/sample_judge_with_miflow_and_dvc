@@ -17,7 +17,7 @@ git add .
 
 # git commitするが、変更がない場合はスキップする。
 if ! git diff --cached --quiet; then
-    git commit -m "Auto: Run experiment with id: $mikoto_run_id"
+    git commit -m "Auto: Run generate with id: $mikoto_run_id"
     git tag "$mikoto_run_id"
 else
     echo "No changes to commit. Skipping git commit and tag."
