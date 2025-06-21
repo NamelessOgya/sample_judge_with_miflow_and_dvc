@@ -5,10 +5,10 @@
 import argparse
 import mlflow
 import pandas as pd
-import hashlib
+import yaml
 
 from src.judge.judge_common import evaluate_submit_df
-from src.judge.llm_judge import LLMJudge
+from src.common.llm_invoker import LLMInvoker
 from src.utils.dvc_util import get_current_run_id
 from src.utils.hash_util import get_file_hash
 
@@ -22,7 +22,15 @@ def main():
     args = parser.parse_args()
 
     submit = pd.read_csv("./data/submit/{submit_file_name}.csv")  # todo: config指定できるように    
-    judge  = LLMJudge(prompt_path = f"./src/judge/prompt/{args.prompt_name}.txt") 
+    
+    with open("params.yaml", "r") as f:
+        model_config = yaml.safe_load(f)["judge"]["model_config"]
+    
+    
+    judge  = LLMInvoker(
+        model_config = model_config,
+        prompt_path = f"./src/judge/prompt/{args.prompt_name}.txt"
+    ) 
 
     result = evaluate_submit_df(submit_df = submit, judge = judge)
 

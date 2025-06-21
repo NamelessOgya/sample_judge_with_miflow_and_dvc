@@ -26,7 +26,7 @@ def main():
     # inference時はconfigを直接読み込む
     # llm componentに渡す情報を可変にするため
     with open("params.yaml", "r") as f:
-        model_config = yaml.safe_load(f)
+        model_config = yaml.safe_load(f)["judge"]["model_config"]
 
     invoker = LLMInvoker(
         model_config = model_config,  # 実際のモデル設定を指定する

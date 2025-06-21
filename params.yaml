@@ -2,12 +2,13 @@ generate:
   generate_data_name: data
   generate_prompt_name: set_idol_discription
   model_config:
-    inference_prompt: inference_prompt.txt
-    inference_model: "gpt-3.5-turbo"
+    model: "gpt-3.5-turbo"
 
 judge:
-  submit_file_name: submit
-  judge_model: "gpt-3.5-turbo"
+  submit_file_name: data_set_idol_discription.csv
+  model_config: 
+    model: "gpt-3.5-turbo"
+  
 
   rulebase_funcs:
     - "count_text_length"
