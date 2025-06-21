@@ -7,7 +7,7 @@ import mlflow
 import pandas as pd
 
 
-from src.evaluate_common import evaluate_submit_df
+from src.judge.judge_common import evaluate_submit_df
 from src.judge.rulebase_judge import RulebaseJudge
 from src.utils.dvc_util import get_current_run_id
 from src.utils.hash_util import get_file_hash

@@ -1,9 +1,18 @@
-submit_file_name: submit
+generate:
+  generate_data_name: data
+  generate_prompt_name: set_idol_discription
+  model_config:
+    inference_prompt: inference_prompt.txt
+    inference_model: "gpt-3.5-turbo"
 
-rulebase_funcs:
-  - "count_text_length"
-  - "check_megu_in_text"
+judge:
+  submit_file_name: submit
+  judge_model: "gpt-3.5-turbo"
 
-prompts:
-  - "check_if_category_in_text"
-  - "check_if_gakunen_in_text"
+  rulebase_funcs:
+    - "count_text_length"
+    - "check_megu_in_text"
+
+  prompts:
+    - "check_if_category_in_text"
+    - "check_if_gakunen_in_text"

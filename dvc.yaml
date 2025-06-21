@@ -1,4 +1,15 @@
 stages:
+  llm_generate:
+    cmd: poetry run python -m run.llm_generate --prediction_target_name ${generate_data_name} --prompt_name ${generate_prompt_name}
+    deps:
+      - data/generate_target/${generate_data_name}.csv
+      - data/src/prompt/${generate_prompt_name}.txt
+      - run/llm_generate.py
+    outs:
+      - data/submit/
+    generate:
+      - inference
+
   rulebase_evaluate:
     foreach: ${rulebase_funcs}
     do: 
