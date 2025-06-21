@@ -7,8 +7,8 @@ stages:
       - run/llm_generate.py
     outs:
       - data/submit/
-    generate:
-      - inference
+    params:
+      - generate
 
   rulebase_evaluate:
     foreach: ${rulebase_funcs}
