@@ -129,3 +129,27 @@ stages:
       hash: md5
       md5: bbd478a02300e3db394645446c2cb2af
       size: 806
+  llm_generate:
+    cmd: poetry run python -m run.llm_generate --generate_target_name data 
+      --prompt_name set_idol_discription
+    deps:
+    - path: data/generate_target/data.csv
+      hash: md5
+      md5: fbf274e04fdb7adc0b2fafbf175e220f
+      size: 97
+    - path: run/llm_generate.py
+      hash: md5
+      md5: 8d1bf8279beb83ed9c54c7e4ff2b6e79
+      size: 1855
+    - path: src/generate/prompt/set_idol_discription.txt
+      hash: md5
+      md5: 112693004348727dda08c429a8195195
+      size: 136
+    params:
+      params.yaml:
+        generate:
+          generate_data_name: data
+          generate_prompt_name: set_idol_discription
+          model_config:
+            inference_prompt: inference_prompt.txt
+            inference_model: gpt-3.5-turbo
