@@ -3,7 +3,7 @@ stages:
     cmd: poetry run python -m run.llm_generate --prediction_target_name ${generate.generate_data_name} --prompt_name ${generate.generate_prompt_name}
     deps:
       - data/generate_target/${generate.generate_data_name}.csv
-      - data/src/prompt/${generate.generate_prompt_name}.txt
+      - src/generate/prompt/${generate.generate_prompt_name}.txt
       - run/llm_generate.py
     outs:
       - data/submit/
