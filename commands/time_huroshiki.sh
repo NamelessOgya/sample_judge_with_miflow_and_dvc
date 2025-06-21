@@ -1,3 +1,16 @@
+# ① タイムスタンプ取得
+timestamp=$(date +%Y%m%d%H%M%S)
+
+# ② ハッシュ生成し、一時ファイルとして吐き出す。
+hash=$(echo -n "$timestamp" | sha1sum | cut -c1-12)
+mikoto_run_id="exp_${hash}"
+echo "mikoto_run_id: \"$mikoto_run_id\"" > current_run.yaml
+
+
+echo "=========================="
+echo "mikoto run id: $mikoto_run_id"
+echo "=========================="
+
 # === 入力受付 ===
 echo "=========================="
 read -p "復元したいファイルパスを入力してください（例: data/fileA.csv）: " FILE_PATH
@@ -31,3 +44,4 @@ dvc checkout "$DVC_FILE"
 # Gitに追加して新しいコミットを作成
 git add "$FILE_PATH" "$DVC_FILE"
 git commit -m "AUto: Restore $FILE_PATH from mikoto_run_id $COMMIT_ID"
+git tag "$mikoto_run_id"
