@@ -143,8 +143,8 @@ stages:
       size: 1851
     - path: src/generate/prompt/set_idol_discription.txt
       hash: md5
-      md5: 1af23e379e5f70f2aeb56a2c0d9bfcc8
-      size: 127
+      md5: 9fa318a5f6130535fb3cc444e79b7166
+      size: 145
     params:
       params.yaml:
         generate:
@@ -156,5 +156,5 @@ stages:
     outs:
     - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: 06e69e5bbcfc1e1394a474f98157926c
-      size: 1267
+      md5: fa2efd153139f9dae93ec1cbace03b3e
+      size: 1321
