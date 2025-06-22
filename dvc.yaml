@@ -31,8 +31,6 @@ stages:
         - run/llm_evaluate.py
       outs:
         - data/result/llm_${judge.submit_file_name}_${item.name}.json
-      params:
-        - ${item}
   make_dashboard:
     cmd: poetry run python -m run.make_dashboard
     deps:
