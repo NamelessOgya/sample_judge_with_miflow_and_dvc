@@ -30,6 +30,8 @@ def main():
     
     result.to_json(f"./data/result/rulebase_{args.submit_file_name}_{args.rulebase_func_name}.json", orient="records", lines=True, force_ascii=False)
 
+    mlflow.set_experiment("evaluate")
+
     mlflow.log_param("mikoto_run_id", get_current_run_id())
     mlflow.log_param("category", "rulebase")
     mlflow.log_param("rulebase_func_name", judge.rulebase_func_name)
