@@ -46,7 +46,10 @@ def main():
             
             submit = submit[submit[condition["filter_col_name"]].astype(str) == str(condition["filter_value"])].copy()
     else:
-        judge_menu["filter"] = None
+        judge_menu["filter"] = {}
+
+    if "prompt_insert" not in judge_menu.keys():
+        judge_menu["prompt_insert"] = {}
 
     judge  = LLMInvoker(
         model_config = judge_config["model_config"],
@@ -88,7 +91,7 @@ def main():
         mlflow.log_param(f"model_config_{key}", value)
 
     # filter / additional_fillingの記録  
-    mlflow.log_param("filter", json.dumps(judge_menu["filter"], ensure_ascii=False) if judge_menu["filter"] is not None else None )
+    mlflow.log_param("filter", json.dumps(judge_menu["filter"], ensure_ascii=False))
     mlflow.log_param("prompt_insert", json.dumps(judge_menu['prompt_insert'], ensure_ascii=False) )
     mlflow.log_param("len_submit", len(submit))
 

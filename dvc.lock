@@ -179,8 +179,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 18824f85d7cfc7caf11844e6d0d0c764
-      size: 3317
+      md5: b1aeb18a923eb3aa2a3cc147bfdb0b53
+      size: 3362
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
@@ -188,8 +188,8 @@ stages:
     outs:
     - path: data/result/llm_data_set_idol_discription_ruri_in_text.json
       hash: md5
-      md5: 61477a857c878c2ee3a9d2b972c6c996
-      size: 1949
+      md5: b9c1590547a9043c09db4330b57105c1
+      size: 1943
   llm_evaluate@1:
     cmd: python -m run.llm_evaluate --judge_name ruri_in_text_in_3nensei 
       --submit_file_name data_set_idol_discription
@@ -200,8 +200,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 18824f85d7cfc7caf11844e6d0d0c764
-      size: 3317
+      md5: b1aeb18a923eb3aa2a3cc147bfdb0b53
+      size: 3362
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
@@ -222,8 +222,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 18824f85d7cfc7caf11844e6d0d0c764
-      size: 3317
+      md5: b1aeb18a923eb3aa2a3cc147bfdb0b53
+      size: 3362
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
@@ -234,3 +234,26 @@ stages:
       hash: md5
       md5: 785fddf72f3d3ed591b0327f0b30525b
       size: 687
+  llm_evaluate@3:
+    cmd: python -m run.llm_evaluate --judge_name check_if_gakunen_in_text 
+      --submit_file_name data_set_idol_discription
+    deps:
+    - path: data/submit/data_set_idol_discription.csv
+      hash: md5
+      md5: 4fcb65c99b140b88fc7abc939b0cf9e1
+      size: 1260
+    - path: run/llm_evaluate.py
+      hash: md5
+      md5: b1aeb18a923eb3aa2a3cc147bfdb0b53
+      size: 3362
+    - path: src/judge/prompt/check_if_gakunen_in_text.txt
+      hash: md5
+      md5: b2c196a574b01de1914f29010f3f4fc6
+      size: 184
+      isexec: true
+    outs:
+    - path: 
+        data/result/llm_data_set_idol_discription_check_if_gakunen_in_text.json
+      hash: md5
+      md5: 024d9a8853aa2c0ac3c06ea22a84cbca
+      size: 1619
