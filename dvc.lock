@@ -212,3 +212,25 @@ stages:
       hash: md5
       md5: 5fe6f8dfc30343bbca93ce0d5b7c53dc
       size: 721
+  llm_evaluate@2:
+    cmd: python -m run.llm_evaluate --judge_name ruri_in_text_in_2nensei 
+      --submit_file_name data_set_idol_discription
+    deps:
+    - path: data/submit/data_set_idol_discription.csv
+      hash: md5
+      md5: 4fcb65c99b140b88fc7abc939b0cf9e1
+      size: 1260
+    - path: run/llm_evaluate.py
+      hash: md5
+      md5: 18824f85d7cfc7caf11844e6d0d0c764
+      size: 3317
+    - path: src/judge/prompt/check_if_category_in_text.txt
+      hash: md5
+      md5: 5054446a188b52bdb942a064bcef64a3
+      size: 195
+    outs:
+    - path: 
+        data/result/llm_data_set_idol_discription_ruri_in_text_in_2nensei.json
+      hash: md5
+      md5: 785fddf72f3d3ed591b0327f0b30525b
+      size: 687
