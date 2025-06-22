@@ -74,7 +74,7 @@ def main():
     mlflow.log_param("prompt_name", judge_menu["prompt_name"])
 
     mlflow.log_param("judge_prompt_base", judge.prompt_base)
-    mlflow.log_param("judge_prompt_version", get_file_hash(f"./src/judge/prompt/{args.prompt_name}.txt"))
+    mlflow.log_param("judge_prompt_version", get_file_hash(f"./src/judge/prompt/{judge_menu['prompt_name']}.txt"))
 
     mlflow.log_param("submit_file_name", args.submit_file_name)
     mlflow.log_param("submit_file_version", get_file_hash(f"./data/submit/{args.submit_file_name}.csv"))
