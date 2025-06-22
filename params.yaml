@@ -18,12 +18,12 @@ judge:
     - name: ruri_in_text
       prompt_name: check_if_category_in_text
       prompt_insert:
-        - fillng_variable_name: search_idol_name
+        - filling_variable_name: search_idol_name
           filling_value: るり
     - name: ruri_in_text_in_3nensei
       prompt_name: check_if_category_in_text
       prompt_insert:
-        - fillng_variable_name: search_idol_name
+        - filling_variable_name: search_idol_name
           filling_value: るり
       filter:
         - filter_col_name: gakunen 
@@ -31,7 +31,7 @@ judge:
     - name: ruri_in_text_in_2nensei
       prompt_name: check_if_category_in_text
       prompt_insert:
-        - fillng_variable_name: category
+        - filling_variable_name: category
           filling_value: るり
       filter:
         - filter_col_name: gakunen 
