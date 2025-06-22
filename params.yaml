@@ -27,7 +27,7 @@ judge:
           filling_value: るり
       filter:
         - filter_col_name: gakunen 
-        - filter_value: 3年生
+          filter_value: 3年生
     - name: ruri_in_text_in_2nensei
       prompt_name: check_if_category_in_text
       prompt_insert:
@@ -35,7 +35,7 @@ judge:
           filling_value: るり
       filter:
         - filter_col_name: gakunen 
-        - filter_value: 2年生
+          filter_value: 2年生
       
     - name: check_if_gakunen_in_text
       prompt_name: check_if_gakunen_in_text
