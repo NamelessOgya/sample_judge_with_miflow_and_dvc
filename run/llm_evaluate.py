@@ -44,7 +44,7 @@ def main():
     if "filter" in judge_menu.keys():
         for condition in judge_menu["filter"]:
             
-            submit = submit[submit[condition["filter_col_name"]].astype(str) == condition["filter_value"].astype(str)].copy()
+            submit = submit[submit[condition["filter_col_name"]].astype(str) == str(condition["filter_value"])].copy()
     else:
         judge_menu["filter"] = None
 
