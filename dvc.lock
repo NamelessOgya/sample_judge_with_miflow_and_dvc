@@ -29,8 +29,8 @@ stages:
     deps:
     - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: df039aa22f9ec4539fd7b01acc167aa5
-      size: 1267
+      md5: b029b8d7b029272ece4474743df5058f
+      size: 1260
     - path: run/rulebase_evaluate.py
       hash: md5
       md5: 1fe79accf4199636550398c4513aed9d
@@ -43,16 +43,16 @@ stages:
     - path: 
         data/result/rulebase_data_set_idol_discription_count_text_length.json
       hash: md5
-      md5: a70d36aa7812ff9ba4ebde9d5e11565d
-      size: 1466
+      md5: bb86efe65cff0776e0523e9d44db63b3
+      size: 1421
   rulebase_evaluate@check_megu_in_text:
     cmd: python -m run.rulebase_evaluate --rulebase_func_name check_megu_in_text
       --submit_file_name data_set_idol_discription
     deps:
     - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: df039aa22f9ec4539fd7b01acc167aa5
-      size: 1267
+      md5: b029b8d7b029272ece4474743df5058f
+      size: 1260
     - path: run/rulebase_evaluate.py
       hash: md5
       md5: 1fe79accf4199636550398c4513aed9d
@@ -65,8 +65,8 @@ stages:
     - path: 
         data/result/rulebase_data_set_idol_discription_check_megu_in_text.json
       hash: md5
-      md5: 1f454a0759f2d3457d14d8324a1230e9
-      size: 1466
+      md5: 0f83d98acf9f6b28d46769baaefe4d7f
+      size: 1421
   llm_evaluate@check_if_category_in_text:
     cmd: python -m run.llm_evaluate --prompt_name check_if_category_in_text 
       --submit_file_name submit
