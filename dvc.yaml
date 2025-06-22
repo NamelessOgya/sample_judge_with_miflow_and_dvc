@@ -27,7 +27,7 @@ stages:
       cmd: python -m run.llm_evaluate --judge_name ${item.name} --submit_file_name ${judge.submit_file_name}
       deps:
         - data/submit/${judge.submit_file_name}.csv
-        - src/judge/prompt/${item}.txt
+        - src/judge/prompt/${item.prompt_name}.txt
         - run/llm_evaluate.py
       outs:
         - data/result/llm_${judge.submit_file_name}_${item.name}.json
