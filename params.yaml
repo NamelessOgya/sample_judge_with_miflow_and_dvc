@@ -5,8 +5,8 @@ generate:
     model: gpt-3.5-turbo
 
 judge:
-  submit_file_name: 
-  model_config: data_set_idol_discription
+  submit_file_name: data_set_idol_discription
+  model_config: 
     model: gpt-3.5-turbo
   
 
