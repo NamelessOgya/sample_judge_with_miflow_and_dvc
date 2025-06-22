@@ -143,8 +143,8 @@ stages:
       size: 97
     - path: run/llm_generate.py
       hash: md5
-      md5: 6a1983aa37af735d4aa5df0ac7a1b880
-      size: 1891
+      md5: cd71335478a0d84de5c6c371203862ea
+      size: 1901
     - path: src/generate/prompt/set_idol_discription.txt
       hash: md5
       md5: 1af23e379e5f70f2aeb56a2c0d9bfcc8
@@ -159,5 +159,5 @@ stages:
     outs:
     - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: b029b8d7b029272ece4474743df5058f
+      md5: bc6f0ef95ef236651dcb00787bac18bb
       size: 1260
