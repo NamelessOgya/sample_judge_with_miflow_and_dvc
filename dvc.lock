@@ -170,6 +170,27 @@ stages:
       md5: 4fcb65c99b140b88fc7abc939b0cf9e1
       size: 1260
   llm_evaluate@0:
+    cmd: python -m run.llm_evaluate --judge_name hime_in_text --submit_file_name
+      data_set_idol_discription
+    deps:
+    - path: data/submit/data_set_idol_discription.csv
+      hash: md5
+      md5: 4fcb65c99b140b88fc7abc939b0cf9e1
+      size: 1260
+    - path: run/llm_evaluate.py
+      hash: md5
+      md5: b1aeb18a923eb3aa2a3cc147bfdb0b53
+      size: 3362
+    - path: src/judge/prompt/check_if_category_in_text.txt
+      hash: md5
+      md5: 5054446a188b52bdb942a064bcef64a3
+      size: 195
+    outs:
+    - path: data/result/llm_data_set_idol_discription_hime_in_text.json
+      hash: md5
+      md5: 7f64b925ba1b483702cacd1de7f908f1
+      size: 1943
+  llm_evaluate@1:
     cmd: python -m run.llm_evaluate --judge_name ruri_in_text --submit_file_name
       data_set_idol_discription
     deps:
@@ -190,7 +211,7 @@ stages:
       hash: md5
       md5: b9c1590547a9043c09db4330b57105c1
       size: 1943
-  llm_evaluate@1:
+  llm_evaluate@2:
     cmd: python -m run.llm_evaluate --judge_name ruri_in_text_in_3nensei 
       --submit_file_name data_set_idol_discription
     deps:
@@ -212,7 +233,7 @@ stages:
       hash: md5
       md5: 5fe6f8dfc30343bbca93ce0d5b7c53dc
       size: 721
-  llm_evaluate@2:
+  llm_evaluate@3:
     cmd: python -m run.llm_evaluate --judge_name ruri_in_text_in_2nensei 
       --submit_file_name data_set_idol_discription
     deps:
@@ -234,7 +255,7 @@ stages:
       hash: md5
       md5: 785fddf72f3d3ed591b0327f0b30525b
       size: 687
-  llm_evaluate@3:
+  llm_evaluate@4:
     cmd: python -m run.llm_evaluate --judge_name check_if_gakunen_in_text 
       --submit_file_name data_set_idol_discription
     deps:

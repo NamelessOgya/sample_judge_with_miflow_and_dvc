@@ -15,6 +15,11 @@ judge:
     - check_megu_in_text
 
   judge_menus:
+    - name: hime_in_text
+      prompt_name: check_if_category_in_text
+      prompt_insert:
+        - filling_variable_name: search_idol_name
+          filling_value: ひめ
     - name: ruri_in_text
       prompt_name: check_if_category_in_text
       prompt_insert:
