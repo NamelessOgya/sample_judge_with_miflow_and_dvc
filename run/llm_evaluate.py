@@ -71,7 +71,7 @@ def main():
 
     
     mlflow.log_param("judge_name", args.judge_name)
-    mlflow.log_param("prompt_name", judge_menu["prompt"])
+    mlflow.log_param("prompt_name", judge_menu["prompt_name"])
 
     mlflow.log_param("judge_prompt_base", judge.prompt_base)
     mlflow.log_param("judge_prompt_version", get_file_hash(f"./src/judge/prompt/{args.prompt_name}.txt"))
