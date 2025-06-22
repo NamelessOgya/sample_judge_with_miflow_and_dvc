@@ -22,21 +22,25 @@ stages:
         - data/result/rulebase_${judge.submit_file_name}_${item}.json
 
   llm_evaluate:
-    foreach: ${judge.prompts}
+    foreach: ${judge.llm_judges}
     do: 
-      cmd: python -m run.llm_evaluate --prompt_name ${item} --submit_file_name ${judge.submit_file_name}
+      cmd: python -m run.llm_evaluate --judge_name ${item.name} --submit_file_name ${judge.submit_file_name}
       deps:
         - data/submit/${judge.submit_file_name}.csv
         - src/judge/prompt/${item}.txt
         - run/llm_evaluate.py
       outs:
-        - data/result/llm_${judge.submit_file_name}_${item}.json
+        - data/result/llm_${judge.submit_file_name}_${item.name}.json
+      params:
+        - ${item}
   make_dashboard:
     cmd: poetry run python -m run.make_dashboard
     deps:
       - data/result/
       - run/make_dashboard.py
     outs:
-      - data/dashboard/mikoto_run_ids.csv
+      - data/dashboard/generate_history.csv
       - data/dashboard/scores.csv
+      - data/dashboard/condition_mikoto_run_ids.csv
+      - data/dashboard/judge_history.csv
   

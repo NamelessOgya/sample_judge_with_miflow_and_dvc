@@ -14,6 +14,29 @@ judge:
     - count_text_length
     - check_megu_in_text
 
-  prompts:
-    - check_if_category_in_text
-    - check_if_gakunen_in_text
+  judge_menus:
+    - name: ruri_in_text
+      prompt_name: check_if_category_in_text
+      prompt_insert:
+        - fillng_variable_name: search_idol_name
+          filling_value: るり
+    - name: ruri_in_text_in_3nensei
+      prompt: check_if_category_in_text
+      prompt_insert:
+        - fillng_variable_name: search_idol_name
+          filling_value: るり
+      filter:
+        - filter_col_name: gakunen 
+        - filter_value: 3年生
+    - name: ruri_in_text_in_2nensei
+      prompt: check_if_category_in_text
+      prompt_insert:
+        - fillng_variable_name: category
+          filling_value: るり
+      filter:
+        - filter_col_name: gakunen 
+        - filter_value: 2年生
+      
+    - name:
+      name: check_if_gakunen_in_text
+      prompt: check_if_gakunen_in_text

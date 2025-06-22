@@ -5,9 +5,11 @@
 
 import mlflow
 import pandas as pd
+from datetime import datetime, timezone, timedelta
 
+JST = timezone(timedelta(hours=9))
 
-def make_evaluate_dashboard_df(client):
+def make_generate_dashboard_df(client):
     experiment_id = client.get_experiment_by_name("text_generation").experiment_id
     
     runs = client.search_runs(
@@ -20,27 +22,27 @@ def make_evaluate_dashboard_df(client):
     # データをDataFrameに変換
     data = []
     for run in runs:
-        print(run)
         try:
             result_dict = {
                 "mikoto_run_id": run.data.params.get('mikoto_run_id'),
-                "inference_prompt": run.data.params.get('submit_file_name'),
-                "generate_prompt_base": run.data.params.get('submit_file_name'),
+                "start_time": datetime.fromtimestamp(run.info.start_time / 1000, tz=JST) if run.info.start_time else None,
+                "end_time": datetime.fromtimestamp(run.info.end_time / 1000, tz=JST) if run.info.end_time else None ,
+
+                "generate_prompt_name": run.data.params.get('prompt_name'),
+                "generate_prompt_base": run.data.params.get('generate_prompt_base'),
                 "generate_prompt_version": run.data.params.get('generate_prompt_version'),
-                "inference_model": run.data.params.get('inference_model'),
+                "inference_model": run.data.params.get('model_config_model'),
             }
 
             data.append(result_dict)
         except:
             pass
     
-    print("###############")
-    print(data)
     df = pd.DataFrame(data)
 
     
     return {
-        "scores": df
+        "generate_history": df
     }
 
 if __name__ == "__main__":

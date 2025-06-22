@@ -4,7 +4,8 @@ from src.common.llm_invoker import LLMInvoker
 
 def evaluate_submit_df(
         submit_df: pd.DataFrame, 
-        judge: RulebaseJudge | LLMInvoker
+        judge: RulebaseJudge | LLMInvoker,
+        additional_filling_dict: list
     ):
     """
         evaluation用のsubmit_dfを受け取り、judgeを適用して結果を返す関数
@@ -23,8 +24,15 @@ def evaluate_submit_df(
 
     # submitサンプル各行に対してroopを回す
     for row_dict in submit_df.to_dict(orient="records"):
-        print(row_dict)
         
+        # additonal filling dictを反映
+        for filling in additional_filling_dict:
+            if filling["fillng_variable_name"] in row_dict.keys():
+                raise ValueError("辞書が重複しています。")
+            
+            row_dict[filling["fillng_variable_name"]] = filling["fillng_value"]
+        
+
         result = judge.judge_row(row_dict)
 
         for key, val in result.items():

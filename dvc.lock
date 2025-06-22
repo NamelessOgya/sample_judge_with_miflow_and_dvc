@@ -117,22 +117,30 @@ stages:
     deps:
     - path: data/result/
       hash: md5
-      md5: 261a0d6c68fffba069d4659df3b83a66.dir
+      md5: 917cbdb5702e8aa1182799181f61449e.dir
       size: 11188
       nfiles: 8
     - path: run/make_dashboard.py
       hash: md5
-      md5: 7da77944ff1198fb2b6f398b2171a1fd
-      size: 540
+      md5: 8f986571e55ed2edbfcd716449b7396f
+      size: 794
     outs:
-    - path: data/dashboard/mikoto_run_ids.csv
+    - path: data/dashboard/condition_mikoto_run_ids.csv
       hash: md5
-      md5: 5a95ab5e22f51576bfc11ec804b8d1ff
-      size: 565
+      md5: 90e73d4f9a444b9a086532ca770cb337
+      size: 724
+    - path: data/dashboard/generate_history.csv
+      hash: md5
+      md5: 2a4b4d321627fc4ce91dde3b52915579
+      size: 7916
+    - path: data/dashboard/judge_history.csv
+      hash: md5
+      md5: f2ba19d9045b25692ab77b5d0fa32255
+      size: 2347
     - path: data/dashboard/scores.csv
       hash: md5
-      md5: 03e1a7e0bd7b83054cfd5c602ac4229c
-      size: 558
+      md5: 867c347419a083f1fddebab54bf1e65a
+      size: 710
   llm_generate:
     cmd: poetry run python -m run.llm_generate --generate_target_name data 
       --prompt_name set_idol_discription

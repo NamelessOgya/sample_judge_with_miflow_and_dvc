@@ -5,7 +5,9 @@
 
 import mlflow
 import pandas as pd
+from datetime import datetime, timezone, timedelta
 
+JST = timezone(timedelta(hours=9))
 
 def make_evaluate_dashboard_df(client):
     experiment_id = client.get_experiment_by_name("evaluate").experiment_id
@@ -23,6 +25,9 @@ def make_evaluate_dashboard_df(client):
         
         try:
             result_dict = {
+                "start_time": datetime.fromtimestamp(run.info.start_time / 1000, tz=JST) if run.info.start_time else None,
+                "end_time": datetime.fromtimestamp(run.info.end_time / 1000, tz=JST) if run.info.end_time else None ,
+
                 "submit": run.data.params.get('submit_file_name') + "_" + run.data.params.get('submit_file_version'),
                 "mikoto_run_id": run.data.params.get('mikoto_run_id'),
                 "score": run.data.metrics.get('score', None),
@@ -61,11 +66,13 @@ def make_evaluate_dashboard_df(client):
         aggfunc= lambda x: "; ".join(set(x))
     )
 
+
     # mikoto_run_ids.to_csv("./data/dashboard/mikoto_run_ids.csv")
 
     return {
         "scores": scores,
-        "evaluate_mikoto_run_ids": mikoto_run_ids
+        "condition_mikoto_run_ids": mikoto_run_ids,
+        "judge_history": df
     }
 
 if __name__ == "__main__":
