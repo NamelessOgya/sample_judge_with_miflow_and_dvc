@@ -61,7 +61,7 @@ def main():
     result["filter"] = json.dumps(judge_menu["filter"], ensure_ascii=False) 
     result["prompt_insert"] = json.dumps(judge_menu['prompt_insert'], ensure_ascii=False) 
 
-    result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.name}.json", orient="records", lines=True, force_ascii=False)
+    result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}.json", orient="records", lines=True, force_ascii=False)
 
     
     mlflow.set_experiment("evaluate")
