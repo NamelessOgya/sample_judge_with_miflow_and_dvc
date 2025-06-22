@@ -27,7 +27,7 @@ def evaluate_submit_df(
         
         # additonal filling dictを反映
         for filling in additional_filling_dict:
-            if filling["fillng_variable_name"] in row_dict.keys():
+            if filling["filling_variable_name"] in row_dict.keys():
                 raise ValueError("辞書が重複しています。")
             
             print("##########")
