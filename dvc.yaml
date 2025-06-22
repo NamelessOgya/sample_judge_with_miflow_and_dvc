@@ -11,26 +11,26 @@ stages:
       - generate
 
   rulebase_evaluate:
-    foreach: ${rulebase_funcs}
+    foreach: ${judge.rulebase_funcs}
     do: 
-      cmd: python -m run.rulebase_evaluate --rulebase_func_name ${item} --submit_file_name ${submit_file_name}
+      cmd: python -m run.rulebase_evaluate --rulebase_func_name ${item} --submit_file_name ${judge.submit_file_name}
       deps:
-        - data/submit/${submit_file_name}.csv
+        - data/submit/${judge.submit_file_name}.csv
         - src/judge/rulebase_funcs/${item}.py
         - run/rulebase_evaluate.py
       outs:
-        - data/result/rulebase_${submit_file_name}_${item}.json
+        - data/result/rulebase_${judge.submit_file_name}_${item}.json
 
   llm_evaluate:
-    foreach: ${prompts}
+    foreach: ${judge.prompts}
     do: 
-      cmd: python -m run.llm_evaluate --prompt_name ${item} --submit_file_name ${submit_file_name}
+      cmd: python -m run.llm_evaluate --prompt_name ${item} --submit_file_name ${judge.submit_file_name}
       deps:
-        - data/submit/${submit_file_name}.csv
+        - data/submit/${judge.submit_file_name}.csv
         - src/judge/prompt/${item}.txt
         - run/llm_evaluate.py
       outs:
-        - data/result/llm_${submit_file_name}_${item}.json
+        - data/result/llm_${judge.submit_file_name}_${item}.json
   make_dashboard:
     cmd: poetry run python -m run.make_dashboard
     deps:
