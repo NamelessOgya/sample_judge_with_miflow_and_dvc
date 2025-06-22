@@ -22,7 +22,7 @@ stages:
         - data/result/rulebase_${judge.submit_file_name}_${item}.json
 
   llm_evaluate:
-    foreach: ${judge.llm_judges}
+    foreach: ${judge_menus}
     do: 
       cmd: python -m run.llm_evaluate --judge_name ${item.name} --submit_file_name ${judge.submit_file_name}
       deps:
