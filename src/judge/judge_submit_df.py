@@ -25,7 +25,7 @@ def evaluate_submit_df(
     for row_dict in submit_df.to_dict(orient="records"):
         print(row_dict)
         
-        result = judge.judge(row_dict)
+        result = judge.judge_row(row_dict)
 
         for key, val in result.items():
             row_dict[key] = val

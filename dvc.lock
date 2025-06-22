@@ -69,47 +69,49 @@ stages:
       size: 1421
   llm_evaluate@check_if_category_in_text:
     cmd: python -m run.llm_evaluate --prompt_name check_if_category_in_text 
-      --submit_file_name submit
+      --submit_file_name data_set_idol_discription
     deps:
-    - path: data/submit/submit.csv
+    - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: faac4d81aab978d5a1a76dad1ab0b0b9
-      size: 1158
+      md5: b029b8d7b029272ece4474743df5058f
+      size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 6b78857f7ea7b4637dc31a8f5bb36e7e
-      size: 1682
+      md5: 526d93260be5420af580bc106e510661
+      size: 1936
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 2d6d66c9c29a288f2114d7cbd0a9a078
       size: 183
     outs:
-    - path: data/result/llm_submit_check_if_category_in_text.json
+    - path: 
+        data/result/llm_data_set_idol_discription_check_if_category_in_text.json
       hash: md5
-      md5: 2a9bbe09bc300ba07623cd8aeb4b2e7f
-      size: 1376
+      md5: e09b11786e42990e9a1710145fba7b29
+      size: 1514
   llm_evaluate@check_if_gakunen_in_text:
     cmd: python -m run.llm_evaluate --prompt_name check_if_gakunen_in_text 
-      --submit_file_name submit
+      --submit_file_name data_set_idol_discription
     deps:
-    - path: data/submit/submit.csv
+    - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: faac4d81aab978d5a1a76dad1ab0b0b9
-      size: 1158
+      md5: b029b8d7b029272ece4474743df5058f
+      size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 6b78857f7ea7b4637dc31a8f5bb36e7e
-      size: 1682
+      md5: 526d93260be5420af580bc106e510661
+      size: 1936
     - path: src/judge/prompt/check_if_gakunen_in_text.txt
       hash: md5
       md5: b2c196a574b01de1914f29010f3f4fc6
       size: 184
       isexec: true
     outs:
-    - path: data/result/llm_submit_check_if_gakunen_in_text.json
+    - path: 
+        data/result/llm_data_set_idol_discription_check_if_gakunen_in_text.json
       hash: md5
-      md5: 2a9bbe09bc300ba07623cd8aeb4b2e7f
-      size: 1376
+      md5: e09b11786e42990e9a1710145fba7b29
+      size: 1514
   make_dashboard:
     cmd: poetry run python -m run.make_dashboard
     deps:

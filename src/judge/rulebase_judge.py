@@ -6,7 +6,6 @@
     プロンプトを読み込み、内容を評価するクラス。
 """
 
-import pandas as pd
 import importlib
 
 class RulebaseJudge:
@@ -17,7 +16,7 @@ class RulebaseJudge:
         # 関数オブジェクトを取得して実行
         self.func = getattr(module, rulebase_func_name)
     
-    def judge(self, row_dict: dict) -> dict:
+    def judge_row(self, row_dict: dict) -> dict:
         
         result = self.func(row_dict)
         
