@@ -41,7 +41,7 @@ def main():
     submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv")  # todo: config指定できるように  
     
     
-    if "filter_col_name" in judge_menu["filter"]:
+    if "filter" not in judge_menu.keys():
         for condition in judge_menu["filter"]:
             submit = submit[submit[condition["filter_col_name"]].astype(str) == condition["filter_value"].astype(str)].copy()
 
