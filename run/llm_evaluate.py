@@ -7,7 +7,7 @@ import mlflow
 import pandas as pd
 import yaml
 
-from src.judge.judge_common import evaluate_submit_df
+from judge.judge_submit_df import evaluate_submit_df
 from src.common.llm_invoker import LLMInvoker
 from src.utils.dvc_util import get_current_run_id
 from src.utils.hash_util import get_file_hash

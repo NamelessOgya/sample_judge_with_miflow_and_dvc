@@ -5,15 +5,15 @@ generate:
     model: "gpt-3.5-turbo"
 
 judge:
-  submit_file_name: data_set_idol_discription.csv
-  model_config: 
-    model: "gpt-3.5-turbo"
+  submit_file_name: 
+  model_config: data_set_idol_discription
+    model: gpt-3.5-turbo
   
 
   rulebase_funcs:
-    - "count_text_length"
-    - "check_megu_in_text"
+    - count_text_length
+    - check_megu_in_text
 
   prompts:
-    - "check_if_category_in_text"
-    - "check_if_gakunen_in_text"
+    - check_if_category_in_text
+    - check_if_gakunen_in_text
