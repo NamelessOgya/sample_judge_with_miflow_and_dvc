@@ -27,7 +27,7 @@ def main():
 
     judge_menu = None
     for m in judge_config["judge_menus"]:
-        if args.judge_name == key:
+        if args.judge_name == judge_config["judge_menus"]["name"]:
             judge_menu = m
 
     if judge_menu is None:
