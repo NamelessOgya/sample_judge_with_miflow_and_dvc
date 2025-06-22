@@ -46,7 +46,7 @@ def main():
     mlflow.log_param("generate_prompt_base", invoker.prompt_base)
     mlflow.log_param("generate_prompt_version", get_file_hash(f"./src/generate/prompt/{args.prompt_name}.txt"))
 
-    for key, value in model_config["inference"].items():
+    for key, value in model_config["generate"].items():
         mlflow.log_param(f"model_config_{key}", value)
 
     
