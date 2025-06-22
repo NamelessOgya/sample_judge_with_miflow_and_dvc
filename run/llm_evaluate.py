@@ -52,5 +52,8 @@ def main():
 
     mlflow.log_metric("score", result["score"].mean())
 
+    for key, value in model_config.items():
+        mlflow.log_param(f"model_config_{key}", value)
+
 if __name__ == '__main__':
     main()

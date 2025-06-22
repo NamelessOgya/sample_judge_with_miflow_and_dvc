@@ -26,10 +26,10 @@ def main():
     # inference時はconfigを直接読み込む
     # llm componentに渡す情報を可変にするため
     with open("params.yaml", "r") as f:
-        param = yaml.safe_load(f)
+        model_config = yaml.safe_load(f)["generate"]["model_config"]
 
     invoker = LLMInvoker(
-        model_config = param["generate"]["model_config"],  # 実際のモデル設定を指定する
+        model_config = model_config,  # 実際のモデル設定を指定する
         prompt_path = f"./src/generate/prompt/{args.prompt_name}.txt"
     )
 
@@ -48,7 +48,7 @@ def main():
     mlflow.log_param("generate_prompt_version", get_file_hash(f"./src/generate/prompt/{args.prompt_name}.txt"))
     mlflow.log_param("output_file_name", f"./data/submit/{args.generate_target_name}_{args.prompt_name}.csv")
 
-    for key, value in param["generate"]["model_config"].items():
+    for key, value in model_config.items():
         mlflow.log_param(f"model_config_{key}", value)
 
     
