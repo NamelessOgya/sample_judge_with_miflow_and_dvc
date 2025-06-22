@@ -37,6 +37,6 @@ judge:
         - filter_col_name: gakunen 
         - filter_value: 2年生
       
-    - name:
+    - name: check_if_gakunen_in_text
       name: check_if_gakunen_in_text
       prompt: check_if_gakunen_in_text

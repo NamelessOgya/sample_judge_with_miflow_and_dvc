@@ -40,6 +40,7 @@ def main():
 
     submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv")  # todo: config指定できるように  
     
+    
     if "filter_col_name" in judge_menu["filter"]:
         for condition in judge_menu["filter"]:
             submit = submit[submit[condition["filter_col_name"]].astype(str) == condition["filter_value"].astype(str)].copy()
@@ -54,6 +55,9 @@ def main():
         judge = judge, 
         additional_filling_dict = judge_menu['prompt_insert']
     )
+
+    result["filter"] = json.dumps(judge_menu["filter"], ensure_ascii=False) 
+    result["prompt_insert"] = json.dumps(judge_menu['prompt_insert'], ensure_ascii=False) 
 
     result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.name}.json", orient="records", lines=True, force_ascii=False)
 
