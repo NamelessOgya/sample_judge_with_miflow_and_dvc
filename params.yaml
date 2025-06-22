@@ -2,7 +2,7 @@ generate:
   generate_data_name: data
   generate_prompt_name: set_idol_discription
   model_config:
-    model: "gpt-3.5-turbo"
+    model: gpt-3.5-turbo
 
 judge:
   submit_file_name: 
