@@ -38,5 +38,4 @@ judge:
         - filter_value: 2年生
       
     - name: check_if_gakunen_in_text
-      name: check_if_gakunen_in_text
       prompt: check_if_gakunen_in_text
