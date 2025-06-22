@@ -32,7 +32,7 @@ def evaluate_submit_df(
             
             print("##########")
             print(filling)
-            row_dict[filling["fillng_variable_name"]] = filling["fillng_value"]
+            row_dict[filling["filling_variable_name"]] = filling["filling_value"]
         
 
         result = judge.judge_row(row_dict)
