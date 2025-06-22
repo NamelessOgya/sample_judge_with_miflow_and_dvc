@@ -21,7 +21,7 @@ def main():
 
     args = parser.parse_args()
 
-    submit = pd.read_csv("./data/submit/submit.csv") # todo: config指定できるように
+    submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv") # todo: config指定できるように
     judge  = RulebaseJudge(args.rulebase_func_name) 
 
     

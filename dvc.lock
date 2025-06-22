@@ -25,46 +25,48 @@ stages:
       size: 5684
   rulebase_evaluate@count_text_length:
     cmd: python -m run.rulebase_evaluate --rulebase_func_name count_text_length 
-      --submit_file_name submit
+      --submit_file_name data_set_idol_discription
     deps:
-    - path: data/submit/submit.csv
+    - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: faac4d81aab978d5a1a76dad1ab0b0b9
-      size: 1158
+      md5: df039aa22f9ec4539fd7b01acc167aa5
+      size: 1267
     - path: run/rulebase_evaluate.py
       hash: md5
-      md5: 9a137379c5cb13f8d9beb401829bdd4d
-      size: 1602
+      md5: 1fe79accf4199636550398c4513aed9d
+      size: 1626
     - path: src/judge/rulebase_funcs/count_text_length.py
       hash: md5
       md5: 055b0c892221991b62284da516344de5
       size: 356
     outs:
-    - path: data/result/rulebase_submit_count_text_length.json
+    - path: 
+        data/result/rulebase_data_set_idol_discription_count_text_length.json
       hash: md5
-      md5: 5afa9720ea705444361965285f7d1fe9
-      size: 1283
+      md5: a70d36aa7812ff9ba4ebde9d5e11565d
+      size: 1466
   rulebase_evaluate@check_megu_in_text:
     cmd: python -m run.rulebase_evaluate --rulebase_func_name check_megu_in_text
-      --submit_file_name submit
+      --submit_file_name data_set_idol_discription
     deps:
-    - path: data/submit/submit.csv
+    - path: data/submit/data_set_idol_discription.csv
       hash: md5
-      md5: faac4d81aab978d5a1a76dad1ab0b0b9
-      size: 1158
+      md5: df039aa22f9ec4539fd7b01acc167aa5
+      size: 1267
     - path: run/rulebase_evaluate.py
       hash: md5
-      md5: 9a137379c5cb13f8d9beb401829bdd4d
-      size: 1602
+      md5: 1fe79accf4199636550398c4513aed9d
+      size: 1626
     - path: src/judge/rulebase_funcs/check_megu_in_text.py
       hash: md5
       md5: a05c349a92ce22b233956445f5ab403b
       size: 380
     outs:
-    - path: data/result/rulebase_submit_check_megu_in_text.json
+    - path: 
+        data/result/rulebase_data_set_idol_discription_check_megu_in_text.json
       hash: md5
-      md5: 15cce71818b45e3045330a857b985f43
-      size: 1283
+      md5: 1f454a0759f2d3457d14d8324a1230e9
+      size: 1466
   llm_evaluate@check_if_category_in_text:
     cmd: python -m run.llm_evaluate --prompt_name check_if_category_in_text 
       --submit_file_name submit
