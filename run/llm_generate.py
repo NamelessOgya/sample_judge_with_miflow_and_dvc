@@ -44,7 +44,9 @@ def main():
     
     mlflow.log_param("prompt_name", args.prompt_name)
     mlflow.log_param("generate_prompt_base", invoker.prompt_base)
+    mlflow.log_param("generate_prompt_base", invoker.prompt_base)
     mlflow.log_param("generate_prompt_version", get_file_hash(f"./src/generate/prompt/{args.prompt_name}.txt"))
+    mlflow.log_param("output_file_name", f"./data/submit/{args.generate_target_name}_{args.prompt_name}.csv")
 
     for key, value in param["generate"]["model_config"].items():
         mlflow.log_param(f"model_config_{key}", value)
