@@ -35,7 +35,10 @@ def make_evaluate_dashboard_df(client):
 
             if run.data.params.get('category') == 'llm':
                 result_dict["category"] = run.data.params.get('category')
-                result_dict["judge_field"] = run.data.params.get('prompt_name') + "_" + run.data.params.get('judge_prompt_version')
+                result_dict["judge_field"] = run.data.params.get('judge_name') + "_" + run.data.params.get('judge_prompt_version')
+                result_dict["filter"] = run.data.params.get('filter')
+                result_dict["len_submit"] = run.data.params.get('len_submit')
+                result_dict["prompt_insert"] = run.data.params.get('prompt_insert')
 
                 data.append(result_dict)
             elif run.data.params.get('category') == 'rulebase':

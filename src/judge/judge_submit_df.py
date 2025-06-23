@@ -30,8 +30,6 @@ def evaluate_submit_df(
             if filling["filling_variable_name"] in row_dict.keys():
                 raise ValueError("辞書が重複しています。")
             
-            print("##########")
-            print(filling)
             row_dict[filling["filling_variable_name"]] = filling["filling_value"]
         
 
