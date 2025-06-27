@@ -41,6 +41,7 @@ judge:
       filter:
         - filter_col_name: gakunen 
           filter_value: 2年生
+    
     - name: pair_kyokumei_dododo
       prompt_name: pair_check_word
       prompt_insert:
