@@ -34,8 +34,6 @@ def main():
     if judge_menu is None:
         raise NotImplemented
 
-    print(judge_menu)    
-
     submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv")  # todo: config指定できるように  
 
     # pairwise evaluateのために、pair側の出力をカラムに追加する。  
@@ -43,11 +41,6 @@ def main():
         pair_df = pd.read_csv(f"./data/submit/{judge_menu['pair_csv_name']}.csv")
         join_keys = [col for col in pair_df.columns if col != "text"]
         pair_df = pair_df.rename(columns = {"text": "pair_text"})
-        
-        print(submit)
-        print("================")
-        print(pair_df)
-
         
 
         submit = pd.merge(submit, pair_df, on = join_keys, how = "left")

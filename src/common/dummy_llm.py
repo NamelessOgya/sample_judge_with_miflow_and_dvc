@@ -51,6 +51,12 @@ class DummyLLM:
             submit = prompt.split("【対象テキスト】")[1].split("【比較対象】")[0]
             pair = prompt.split("【比較対象】")[1]
 
+            print("== submit ==")
+            print(submit)
+
+            print("== pair ==")
+            print(pair)
+
             submit_keyword_len = len(submit.split(keyword))
             pair_keyword_len = len(pair.split(keyword))
 
