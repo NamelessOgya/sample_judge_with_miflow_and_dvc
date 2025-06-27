@@ -19,7 +19,6 @@ def main():
     parser = argparse.ArgumentParser(description="evaluate時の引数")
     parser.add_argument('--judge_name', type=str, required=True, help="名前を指定")
     parser.add_argument('--submit_file_name', type=str, required=True, help="名前を指定")
-    parser.add_argument('--pair_csv_name', default=None, type=str, required=True, help="名前を指定")
 
     args = parser.parse_args()
 
@@ -40,14 +39,14 @@ def main():
     submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv")  # todo: config指定できるように  
 
     # pairwise evaluateのために、pair側の出力をカラムに追加する。  
-    if args.pair_csv_name is not None:
-        pair_df = pd.read_csv(f"./data/submit/{args.pair_csv_name}.csv")
+    if judge_menu['pair_csv_name'] is not None:
+        pair_df = pd.read_csv(f"./data/submit/{judge_menu['pair_csv_name']}.csv")
         pair_df = pair_df.rename(columns = {"text": "pair_text"})
 
         join_keys = [col for col in pair_df.columns if col != "text"]
 
         submit = pd.merge(submit, pair_df, on = join_keys, how = "left")
-        submit["pair_submit_name"] = args.pair_csv_name
+        submit["pair_submit_name"] = judge_menu['pair_csv_name']
 
         if submit["pair_text"].isna().sum() > 0:
             raise Exception("submitファイルにpairwiseファイルのjoinを試みましたが、紐づかないレコードがありました。")
@@ -77,9 +76,9 @@ def main():
     result["filter"] = json.dumps(judge_menu["filter"], ensure_ascii=False) 
     result["prompt_insert"] = json.dumps(judge_menu['prompt_insert'], ensure_ascii=False) 
 
-    if args.pair_csv_name is not None:
-        # pairwise項目においてはargs.pair_csv_nameを付与する。
-        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_vs_{args.pair_csv_name}.json", orient="records", lines=True, force_ascii=False)
+    if judge_menu['pair_csv_name'] is not None:
+        # pairwise項目においてはjudge_menu['pair_csv_name']を付与する。
+        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_vs_{judge_menu['pair_csv_name']}.json", orient="records", lines=True, force_ascii=False)
     else:
         result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}.json", orient="records", lines=True, force_ascii=False)    
     
@@ -88,8 +87,8 @@ def main():
     mlflow.log_param("mikoto_run_id", get_current_run_id())
     mlflow.log_param("category", "llm")
     
-    if args.pair_csv_name is not None:
-        mlflow.log_param("judge_name", args.judge_name + "_vs_" + args.pair_csv_name)
+    if judge_menu['pair_csv_name'] is not None:
+        mlflow.log_param("judge_name", args.judge_name + "_vs_" + judge_menu['pair_csv_name'])
     else:
         mlflow.log_param("judge_name", args.judge_name)
 
