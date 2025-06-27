@@ -179,14 +179,14 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: c6ccc1ee69a0e57255b2e0368861c0e1
-      size: 4197
+      md5: 003c3726a99b47b1524d6aebdc4cd22a
+      size: 4381
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
       size: 195
     outs:
-    - path: data/result/llm_data_set_idol_discription_hime_in_text_None.json
+    - path: data/result/llm_data_set_idol_discription_hime_in_text.json
       hash: md5
       md5: 7f64b925ba1b483702cacd1de7f908f1
       size: 1943
@@ -200,14 +200,14 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: c6ccc1ee69a0e57255b2e0368861c0e1
-      size: 4197
+      md5: 003c3726a99b47b1524d6aebdc4cd22a
+      size: 4381
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
       size: 195
     outs:
-    - path: data/result/llm_data_set_idol_discription_ruri_in_text_None.json
+    - path: data/result/llm_data_set_idol_discription_ruri_in_text.json
       hash: md5
       md5: b9c1590547a9043c09db4330b57105c1
       size: 1943
@@ -221,15 +221,15 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: c6ccc1ee69a0e57255b2e0368861c0e1
-      size: 4197
+      md5: 003c3726a99b47b1524d6aebdc4cd22a
+      size: 4381
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
       size: 195
     outs:
     - path: 
-        data/result/llm_data_set_idol_discription_ruri_in_text_in_3nensei_None.json
+        data/result/llm_data_set_idol_discription_ruri_in_text_in_3nensei.json
       hash: md5
       md5: 5fe6f8dfc30343bbca93ce0d5b7c53dc
       size: 721
@@ -243,20 +243,20 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: c6ccc1ee69a0e57255b2e0368861c0e1
-      size: 4197
+      md5: 003c3726a99b47b1524d6aebdc4cd22a
+      size: 4381
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
       size: 195
     outs:
     - path: 
-        data/result/llm_data_set_idol_discription_ruri_in_text_in_2nensei_None.json
+        data/result/llm_data_set_idol_discription_ruri_in_text_in_2nensei.json
       hash: md5
       md5: 785fddf72f3d3ed591b0327f0b30525b
       size: 687
   llm_evaluate@4:
-    cmd: python -m run.llm_evaluate --judge_name pair_kyokumei_dododo 
+    cmd: python -m run.llm_evaluate --judge_name check_if_gakunen_in_text 
       --submit_file_name data_set_idol_discription
     deps:
     - path: data/submit/data_set_idol_discription.csv
@@ -265,18 +265,19 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: c6ccc1ee69a0e57255b2e0368861c0e1
-      size: 4197
-    - path: src/judge/prompt/pair_check_word.txt
+      md5: 003c3726a99b47b1524d6aebdc4cd22a
+      size: 4381
+    - path: src/judge/prompt/check_if_gakunen_in_text.txt
       hash: md5
-      md5: 9f4278b6ca2b76f3f58f1781578bc0c2
-      size: 446
+      md5: b2c196a574b01de1914f29010f3f4fc6
+      size: 184
+      isexec: true
     outs:
     - path: 
-        data/result/llm_data_set_idol_discription_pair_kyokumei_dododo_data_set_idol_discription_pair.json
+        data/result/llm_data_set_idol_discription_check_if_gakunen_in_text.json
       hash: md5
-      md5: aa889c553a56f5b665559da718cc2c8f
-      size: 3275
+      md5: 024d9a8853aa2c0ac3c06ea22a84cbca
+      size: 1619
   llm_evaluate@5:
     cmd: python -m run.llm_evaluate --judge_name pair_kyokumei_banyu 
       --submit_file_name data_set_idol_discription
