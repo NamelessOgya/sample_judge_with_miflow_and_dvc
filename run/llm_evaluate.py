@@ -66,6 +66,7 @@ def main():
         prompt_path = f"./src/judge/prompt/{judge_menu['prompt_name']}.txt"
     ) 
 
+    print(submit)
     result = evaluate_submit_df(
         submit_df = submit, 
         judge = judge, 
