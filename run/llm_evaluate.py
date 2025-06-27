@@ -27,7 +27,7 @@ def main():
 
 
     judge_menu = None
-    for m in judge_config["judge_menus"]:
+    for m in (judge_config["judge_menus"] + judge_config["pairwise_menus"]):
         if args.judge_name == m["name"]:
             judge_menu = m
 
