@@ -48,7 +48,7 @@ class DummyLLM:
         elif "【対象テキスト】,【比較対象テキスト】内のキーワード数をカウントし、" in prompt:
             keyword = prompt.split("キーワード: ")[1].split("\n")[0]
 
-            submit = prompt.split("【対象テキスト】")[2].split("【比較対象】")[0]
+            submit = prompt.split("【対象テキスト】")[3].split("【比較対象】")[0]
             pair = prompt.split("【比較対象】")[1]
 
             print("== submit ==")
