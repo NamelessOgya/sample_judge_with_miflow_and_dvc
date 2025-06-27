@@ -39,13 +39,13 @@ def main():
     submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv")  # todo: config指定できるように  
 
     # pairwise evaluateのために、pair側の出力をカラムに追加する。  
-    if 'pair_csv_name' != "None":
+    if judge_menu['pair_csv_name'] != "None":
         pair_df = pd.read_csv(f"./data/submit/{judge_menu['pair_csv_name']}.csv")
         join_keys = [col for col in pair_df.columns if col != "text"]
         pair_df = pair_df.rename(columns = {"text": "pair_text"})
 
         submit = pd.merge(submit, pair_df, on = join_keys, how = "left")
-        submit["pair_submit_name"] = judge_menu['pair_csv_name']
+        submit["pair_csv_name"] = judge_menu['pair_csv_name']
 
         if submit["pair_text"].isna().sum() > 0:
             raise Exception("submitファイルにpairwiseファイルのjoinを試みましたが、紐づかないレコードがありました。")
@@ -82,7 +82,7 @@ def main():
     mlflow.log_param("mikoto_run_id", get_current_run_id())
     mlflow.log_param("category", "llm")
     
-    if 'pair_csv_name' == "None":
+    if judge_menu['pair_csv_name'] == "None":
         mlflow.log_param("judge_name", args.judge_name + "_vs_" + judge_menu['pair_csv_name'])
     else:
         mlflow.log_param("judge_name", args.judge_name)
