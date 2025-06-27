@@ -49,7 +49,7 @@ class DummyLLM:
             keyword = prompt.split("キーワード: ")[1].split("\n")[0]
 
             submit = prompt.split("【対象テキスト】")[1].split("【比較対象】")[0]
-            pair = prompt.split("【比較対象】")[0]
+            pair = prompt.split("【比較対象】")[1]
 
             submit_keyword_len = len(submit.split(keyword))
             pair_keyword_len = len(pair.split(keyword))
