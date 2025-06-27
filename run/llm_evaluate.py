@@ -42,6 +42,10 @@ def main():
     if 'pair_csv_name' in judge_menu.keys():
         pair_df = pd.read_csv(f"./data/submit/{judge_menu['pair_csv_name']}.csv")
         pair_df = pair_df.rename(columns = {"text": "pair_text"})
+        
+        print(submit)
+        print("================")
+        print(pair_df)
 
         join_keys = [col for col in pair_df.columns if col != "text"]
 
