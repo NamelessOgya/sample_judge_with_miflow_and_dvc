@@ -39,7 +39,7 @@ def main():
     submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv")  # todo: config指定できるように  
 
     # pairwise evaluateのために、pair側の出力をカラムに追加する。  
-    if 'pair_csv_name' == "None":
+    if 'pair_csv_name' != "None":
         pair_df = pd.read_csv(f"./data/submit/{judge_menu['pair_csv_name']}.csv")
         join_keys = [col for col in pair_df.columns if col != "text"]
         pair_df = pair_df.rename(columns = {"text": "pair_text"})
@@ -66,7 +66,6 @@ def main():
         prompt_path = f"./src/judge/prompt/{judge_menu['prompt_name']}.txt"
     ) 
 
-    print(submit)
     result = evaluate_submit_df(
         submit_df = submit, 
         judge = judge, 
