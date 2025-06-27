@@ -5,7 +5,7 @@ from src.common.llm_invoker import LLMInvoker
 def evaluate_submit_df(
         submit_df: pd.DataFrame, 
         judge: RulebaseJudge | LLMInvoker,
-        additional_filling_dict: list
+        additional_filling_dict: list = []
     ):
     """
         evaluation用のsubmit_dfを受け取り、judgeを適用して結果を返す関数
