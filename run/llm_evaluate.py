@@ -83,7 +83,7 @@ def main():
 
     if 'pair_csv_name' in judge_menu.keys():
         # pairwise項目においてはjudge_menu['pair_csv_name']を付与する。
-        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_vs_{judge_menu['pair_csv_name']}.json", orient="records", lines=True, force_ascii=False)
+        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_{judge_menu['pair_csv_name']}.json", orient="records", lines=True, force_ascii=False)
     else:
         result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}.json", orient="records", lines=True, force_ascii=False)    
     

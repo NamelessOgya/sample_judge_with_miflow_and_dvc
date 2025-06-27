@@ -179,8 +179,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 471831f63e7f89887d0b071286d17891
-      size: 4513
+      md5: f2ba081836260df512323d8e2e44362e
+      size: 4510
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
@@ -200,8 +200,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 471831f63e7f89887d0b071286d17891
-      size: 4513
+      md5: f2ba081836260df512323d8e2e44362e
+      size: 4510
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
@@ -221,8 +221,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 471831f63e7f89887d0b071286d17891
-      size: 4513
+      md5: f2ba081836260df512323d8e2e44362e
+      size: 4510
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
@@ -243,8 +243,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 471831f63e7f89887d0b071286d17891
-      size: 4513
+      md5: f2ba081836260df512323d8e2e44362e
+      size: 4510
     - path: src/judge/prompt/check_if_category_in_text.txt
       hash: md5
       md5: 5054446a188b52bdb942a064bcef64a3
@@ -265,8 +265,8 @@ stages:
       size: 1260
     - path: run/llm_evaluate.py
       hash: md5
-      md5: 471831f63e7f89887d0b071286d17891
-      size: 4513
+      md5: f2ba081836260df512323d8e2e44362e
+      size: 4510
     - path: src/judge/prompt/check_if_gakunen_in_text.txt
       hash: md5
       md5: b2c196a574b01de1914f29010f3f4fc6
@@ -323,3 +323,55 @@ stages:
       hash: md5
       md5: 024d9a8853aa2c0ac3c06ea22a84cbca
       size: 1619
+  llm_pairwise_evaluate@0:
+    cmd: python -m run.llm_evaluate --judge_name pair_kyokumei_dododo 
+      --submit_file_name data_set_idol_discription
+    deps:
+    - path: data/submit/data_set_idol_discription.csv
+      hash: md5
+      md5: 4fcb65c99b140b88fc7abc939b0cf9e1
+      size: 1260
+    - path: data/submit/data_set_idol_discription_pair.csv
+      hash: md5
+      md5: eb798aef1ce7fed57b234e8d7b78a2b6
+      size: 1296
+    - path: run/llm_evaluate.py
+      hash: md5
+      md5: f2ba081836260df512323d8e2e44362e
+      size: 4510
+    - path: src/judge/prompt/pair_check_word.txt
+      hash: md5
+      md5: 9f4278b6ca2b76f3f58f1781578bc0c2
+      size: 446
+    outs:
+    - path: 
+        data/result/llm_data_set_idol_discription_pair_kyokumei_dododo_data_set_idol_discription_pair.json
+      hash: md5
+      md5: 6956442986653ef69d6f8abcee4fe2bc
+      size: 3284
+  llm_pairwise_evaluate@1:
+    cmd: python -m run.llm_evaluate --judge_name pair_kyokumei_banyu 
+      --submit_file_name data_set_idol_discription
+    deps:
+    - path: data/submit/data_set_idol_discription.csv
+      hash: md5
+      md5: 4fcb65c99b140b88fc7abc939b0cf9e1
+      size: 1260
+    - path: data/submit/data_set_idol_discription_pair.csv
+      hash: md5
+      md5: eb798aef1ce7fed57b234e8d7b78a2b6
+      size: 1296
+    - path: run/llm_evaluate.py
+      hash: md5
+      md5: f2ba081836260df512323d8e2e44362e
+      size: 4510
+    - path: src/judge/prompt/pair_check_word.txt
+      hash: md5
+      md5: 9f4278b6ca2b76f3f58f1781578bc0c2
+      size: 446
+    outs:
+    - path: 
+        data/result/llm_data_set_idol_discription_pair_kyokumei_banyu_data_set_idol_discription_pair.json
+      hash: md5
+      md5: 8df269bca0ea5bbdd44f0ca8917aea3f
+      size: 3356
