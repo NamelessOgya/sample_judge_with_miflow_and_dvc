@@ -17,19 +17,16 @@ judge:
   judge_menus:
     - name: hime_in_text
       prompt_name: check_if_category_in_text
-      pair_csv_name: None
       prompt_insert:
         - filling_variable_name: search_idol_name
           filling_value: ひめ
     - name: ruri_in_text
       prompt_name: check_if_category_in_text
-      pair_csv_name: None
       prompt_insert:
         - filling_variable_name: search_idol_name
           filling_value: るり
     - name: ruri_in_text_in_3nensei
       prompt_name: check_if_category_in_text
-      pair_csv_name: None
       prompt_insert:
         - filling_variable_name: search_idol_name
           filling_value: るり
@@ -38,14 +35,17 @@ judge:
           filter_value: 3年生
     - name: ruri_in_text_in_2nensei
       prompt_name: check_if_category_in_text
-      pair_csv_name: None
       prompt_insert:
         - filling_variable_name: search_idol_name
           filling_value: るり
       filter:
         - filter_col_name: gakunen 
           filter_value: 2年生
-    
+      
+    - name: check_if_gakunen_in_text
+      prompt_name: check_if_gakunen_in_text
+
+  pairwise_menus:
     - name: pair_kyokumei_dododo
       prompt_name: pair_check_word
       pair_csv_name: data_set_idol_discription_pair
@@ -59,7 +59,3 @@ judge:
       prompt_insert:
         - filling_variable_name: search_song_name
           filling_value: 万有グラビティ
-      
-    - name: check_if_gakunen_in_text
-      pair_csv_name: None
-      prompt_name: check_if_gakunen_in_text

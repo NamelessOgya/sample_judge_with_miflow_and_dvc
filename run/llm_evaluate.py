@@ -75,14 +75,16 @@ def main():
     result["filter"] = json.dumps(judge_menu["filter"], ensure_ascii=False) 
     result["prompt_insert"] = json.dumps(judge_menu['prompt_insert'], ensure_ascii=False) 
 
-    result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_{judge_menu['pair_csv_name']}.json", orient="records", lines=True, force_ascii=False)
+    if 'pair_csv_name' not in judge_menu.keys():
+        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_{judge_menu['pair_csv_name']}.json", orient="records", lines=True, force_ascii=False)
+    else:
+        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}.json", orient="records", lines=True, force_ascii=False)
     
     mlflow.set_experiment("evaluate")
-    
     mlflow.log_param("mikoto_run_id", get_current_run_id())
     mlflow.log_param("category", "llm")
     
-    if judge_menu['pair_csv_name'] == "None":
+    if 'pair_csv_name' not in judge_menu.keys():
         mlflow.log_param("judge_name", args.judge_name + "_vs_" + judge_menu['pair_csv_name'])
     else:
         mlflow.log_param("judge_name", args.judge_name)

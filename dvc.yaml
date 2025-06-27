@@ -30,7 +30,21 @@ stages:
         - src/judge/prompt/${item.prompt_name}.txt
         - run/llm_evaluate.py
       outs:
+        - data/result/llm_${judge.submit_file_name}_${item.name}.json
+
+  llm_pairwise_evaluate:
+    foreach: ${judge.pairwise_menus}
+    do: 
+      cmd: python -m run.llm_evaluate --judge_name ${item.name} --submit_file_name ${judge.submit_file_name}
+      deps:
+        - data/submit/${judge.submit_file_name}.csv
+        - data/submit/${judge.pair_csv_name}.csv
+        - src/judge/prompt/${item.prompt_name}.txt
+        - run/llm_evaluate.py
+      outs:
         - data/result/llm_${judge.submit_file_name}_${item.name}_${item.pair_csv_name}.json
+
+
   make_dashboard:
     cmd: poetry run python -m run.make_dashboard
     deps:
