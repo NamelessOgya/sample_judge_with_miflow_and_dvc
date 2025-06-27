@@ -41,13 +41,14 @@ def main():
     # pairwise evaluateのために、pair側の出力をカラムに追加する。  
     if 'pair_csv_name' in judge_menu.keys():
         pair_df = pd.read_csv(f"./data/submit/{judge_menu['pair_csv_name']}.csv")
+        join_keys = [col for col in pair_df.columns if col != "text"]
         pair_df = pair_df.rename(columns = {"text": "pair_text"})
         
         print(submit)
         print("================")
         print(pair_df)
 
-        join_keys = [col for col in pair_df.columns if col != "text"]
+        
 
         submit = pd.merge(submit, pair_df, on = join_keys, how = "left")
         submit["pair_submit_name"] = judge_menu['pair_csv_name']
