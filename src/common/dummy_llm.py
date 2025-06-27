@@ -45,5 +45,25 @@ class DummyLLM:
         
             return llm_output_str
 
+        elif "【対象テキスト】,【比較対象テキスト】内のキーワード数をカウントし、" in prompt:
+            keyword = prompt.split("キーワード: ")[1].split("\n")[0]
+
+            submit = prompt.split("【対象テキスト】")[1].split("【比較対象】")[0]
+            pair = prompt.split("【比較対象】")[0]
+
+            submit_keyword_len = len(submit.split(keyword))
+            pair_keyword_len = len(pair.split(keyword))
+
+            if submit_keyword_len > pair_keyword_len:
+                score = 1.0
+            else:
+                score = 0.0
+            
+            return f"""
+            score: {score}  
+            reason: not implemented yet    
+            """
+
+
         else:
             raise NotImplementedError("Unknown prompt for DummyLLM")
