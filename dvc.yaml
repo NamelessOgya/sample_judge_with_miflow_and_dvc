@@ -30,7 +30,7 @@ stages:
         - src/judge/prompt/${item.prompt_name}.txt
         - run/llm_evaluate.py
       outs:
-        - data/result/llm_${judge.submit_file_name}_${item.name}.json
+        - data/result/llm_${judge.submit_file_name}_${item.name}_${item.pair_csv_name}.json
   make_dashboard:
     cmd: poetry run python -m run.make_dashboard
     deps:

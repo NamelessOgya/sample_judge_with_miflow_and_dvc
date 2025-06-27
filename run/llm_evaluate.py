@@ -39,7 +39,7 @@ def main():
     submit = pd.read_csv(f"./data/submit/{args.submit_file_name}.csv")  # todo: config指定できるように  
 
     # pairwise evaluateのために、pair側の出力をカラムに追加する。  
-    if 'pair_csv_name' in judge_menu.keys():
+    if 'pair_csv_name' == "None":
         pair_df = pd.read_csv(f"./data/submit/{judge_menu['pair_csv_name']}.csv")
         join_keys = [col for col in pair_df.columns if col != "text"]
         pair_df = pair_df.rename(columns = {"text": "pair_text"})
@@ -75,18 +75,14 @@ def main():
     result["filter"] = json.dumps(judge_menu["filter"], ensure_ascii=False) 
     result["prompt_insert"] = json.dumps(judge_menu['prompt_insert'], ensure_ascii=False) 
 
-    if 'pair_csv_name' in judge_menu.keys():
-        # pairwise項目においてはjudge_menu['pair_csv_name']を付与する。
-        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_vs_{judge_menu['pair_csv_name']}.json", orient="records", lines=True, force_ascii=False)
-    else:
-        result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}.json", orient="records", lines=True, force_ascii=False)    
+    result.to_json(f"./data/result/llm_{args.submit_file_name}_{args.judge_name}_{judge_menu['pair_csv_name']}.json", orient="records", lines=True, force_ascii=False)
     
     mlflow.set_experiment("evaluate")
     
     mlflow.log_param("mikoto_run_id", get_current_run_id())
     mlflow.log_param("category", "llm")
     
-    if 'pair_csv_name' in judge_menu.keys():
+    if 'pair_csv_name' == "None":
         mlflow.log_param("judge_name", args.judge_name + "_vs_" + judge_menu['pair_csv_name'])
     else:
         mlflow.log_param("judge_name", args.judge_name)
